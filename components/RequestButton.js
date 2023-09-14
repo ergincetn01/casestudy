@@ -1,8 +1,7 @@
 import { Ionicons } from "@expo/vector-icons";
-import { useNavigation } from "@react-navigation/native";
-import { Button, StyleSheet, View } from "react-native";
+import { StyleSheet, View } from "react-native";
 
-function RequestButton({ onPress, navigation }) {
+function RequestButton({ onPress }) {
   return (
     <View style={styles.buttonContainer}>
       <Ionicons

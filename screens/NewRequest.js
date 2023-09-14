@@ -4,12 +4,24 @@ import { useState } from "react";
 
 function NewRequest() {
   const [isFileAttached, setIsFileAttached] = useState(false);
+  const [subject, setSubject]=useState("")
+  const [description, setDescription]=useState("")
 
   function onFileAttached(){
     setIsFileAttached(!isFileAttached);
   }
   
-  function attachFile() {}
+  function attachFile() {
+
+  }
+
+  function onSubjectChanged(e){
+    setSubject(e)
+  }
+
+  function onDescriptionChanged(e){
+    setDescription(e)
+  }
 
   return (
     <View style={styles.outerContainer}>
@@ -17,11 +29,17 @@ function NewRequest() {
       <View style={styles.formContainer}>
         <View style={styles.formFieldContainer}>
           <Text style={styles.formFieldTitle}>Subject</Text>
-          <TextInput style={styles.subject} placeholder="Subject" />
+          <TextInput 
+          style={styles.subject} 
+          value={subject} 
+          onChangeText={onSubjectChanged} 
+          placeholder="Subject" />
         </View>
         <View style={styles.formFieldContainer}>
           <Text style={styles.formFieldTitle}>Description</Text>
           <TextInput
+            value={description}
+            onChangeText={onDescriptionChanged}
             multiline={true}
             numberOfLines={4}
             style={styles.description}
@@ -30,7 +48,6 @@ function NewRequest() {
         </View>
         <View style={styles.fileContainer}>
           <Text style={styles.formFieldTitle}>Attach file</Text>
-
           {isFileAttached ? (
             <View>File attached</View>
           ) : (
@@ -81,7 +98,9 @@ const styles = StyleSheet.create({
     paddingHorizontal: 6,
     fontWeight: "bold",
   },
-  fileContainer: { padding: 8 },
+  fileContainer: { 
+    padding: 8 
+  },
   file: {
     padding: 6,
   },

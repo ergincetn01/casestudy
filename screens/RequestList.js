@@ -9,6 +9,7 @@ function RequestList() {
   const dispatch = useDispatch();
   
 const requestContent= useSelector((state) => state.request_.content);
+
   function getRequests() {
     dispatch(fetchRequests());
   }
@@ -16,14 +17,7 @@ const requestContent= useSelector((state) => state.request_.content);
   useEffect(() => {
     getRequests();
   });
-  const list = [
-    "Dummy",
-    "Dummy Data",
-    "Duuuummmyyy Ddddaataaaa",
-    "erg",
-    "ergi",
-    "ergin",
-  ];
+
   const [searchTerm, setSearchTerm] = useState("");
   const [filteredData, setFilteredData] = useState([]);
   const [sourceData, setSourceData] = useState(requestContent);
@@ -37,11 +31,13 @@ const requestContent= useSelector((state) => state.request_.content);
       });
       setFilteredData([...filteredData, newData]);
       setSearchTerm(term);
-    } else {
+    } 
+    else {
       setFilteredData(sourceData);
       setSearchTerm(term);
     }
   }
+  
   function renderItem(itemData) {
     return <RequestItem itemData={itemData} />;
   }

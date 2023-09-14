@@ -1,5 +1,5 @@
 import * as actionTypes from "../actions/actionTypes";
-import { createSlice, configureStore } from "@reduxjs/toolkit";
+import {createSlice} from "@reduxjs/toolkit";
 
 const requestSlice = createSlice({
   name: "requests",
@@ -7,7 +7,6 @@ const requestSlice = createSlice({
     content: [],
     loading: false,
   },
-
   reducers: {
     fetchRequests: (state = initialState, action) => {
       switch (action.type) {

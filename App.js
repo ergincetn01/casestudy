@@ -4,7 +4,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { Provider } from "react-redux";
 import { store } from "./store/store";
 import MainScreen from "./screens/MainScreen";
-import NewRequest from "./components/NewRequest";
+import NewRequest from "./screens/NewRequest";
 
 const Stack = createNativeStackNavigator();
 
