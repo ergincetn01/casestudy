@@ -1,10 +1,21 @@
 import { FlatList, View } from "react-native";
 import RequestItem from "../components/RequestItem";
 import SearchBar from "../components/SearchBar";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchRequests } from "../store/reducers/requests";
 
 function RequestList() {
-    
+  const dispatch = useDispatch();
+  
+const requestContent= useSelector((state) => state.request_.content);
+  function getRequests() {
+    dispatch(fetchRequests());
+  }
+
+  useEffect(() => {
+    getRequests();
+  });
   const list = [
     "Dummy",
     "Dummy Data",
@@ -13,21 +24,21 @@ function RequestList() {
     "ergi",
     "ergin",
   ];
-
   const [searchTerm, setSearchTerm] = useState("");
   const [filteredData, setFilteredData] = useState([]);
+  const [sourceData, setSourceData] = useState(requestContent);
 
   function searchRequest(term) {
     if (term) {
-      const newData = list.filter(function (item) {
+      const newData = sourceData.filter(function (item) {
         const itemData = item ? item.toUpperCase() : "".toUpperCase();
         const textData = term.toUpperCase();
         return itemData.indexOf(textData) > -1;
       });
-      setFilteredData(newData);
+      setFilteredData([...filteredData, newData]);
       setSearchTerm(term);
     } else {
-      setFilteredData(list);
+      setFilteredData(sourceData);
       setSearchTerm(term);
     }
   }
@@ -39,7 +50,7 @@ function RequestList() {
     <View>
       <View>
         <SearchBar
-          onChange={(text)=>searchRequest(text)}
+          onChange={(text) => searchRequest(text)}
           searchTerm={searchTerm}
         />
       </View>
