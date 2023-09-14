@@ -6,9 +6,9 @@ import { useState } from "react";
 function RequestList() {
     
   const list = [
-    "agggggfsg",
-    "gregrgrgrgggg",
-    "grrhgrhrhrhh",
+    "Dummy",
+    "Dummy Data",
+    "Duuuummmyyy Ddddaataaaa",
     "erg",
     "ergi",
     "ergin",
