@@ -19,7 +19,7 @@ const [filteredData, setFilteredData]= useState([]);
             const itemData = item.title
               ? item.title.toUpperCase()
               : ''.toUpperCase();
-            const textData = text.toUpperCase();
+            const textData = term.toUpperCase();
             return itemData.indexOf(textData) > -1;
         });
         setFilteredData(newData);
@@ -36,7 +36,7 @@ const [filteredData, setFilteredData]= useState([]);
     <View style={styles.mainContainer}>
       <AddNewRequest />
       <View>
-        <RequestList  />
+        <RequestList />
       </View>
     </View>
   );

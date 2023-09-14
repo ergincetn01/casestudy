@@ -4,6 +4,7 @@ import SearchBar from "../components/SearchBar";
 import { useState } from "react";
 
 function RequestList() {
+    
   const list = [
     "agggggfsg",
     "gregrgrgrgggg",
@@ -26,7 +27,7 @@ function RequestList() {
       setFilteredData(newData);
       setSearchTerm(term);
     } else {
-      setFilteredData([]);
+      setFilteredData(list);
       setSearchTerm(term);
     }
   }
@@ -38,7 +39,7 @@ function RequestList() {
     <View>
       <View>
         <SearchBar
-          onchange={(text) => searchRequest(text)}
+          onChange={(text)=>searchRequest(text)}
           searchTerm={searchTerm}
         />
       </View>

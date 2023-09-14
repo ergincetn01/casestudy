@@ -1,10 +1,14 @@
-import { Ionicons } from "@expo/vector-icons";
 import { Button, StyleSheet, Text, TextInput, View } from "react-native";
 import { AntDesign } from "@expo/vector-icons";
 import { useState } from "react";
 
 function NewRequest() {
   const [isFileAttached, setIsFileAttached] = useState(false);
+
+  function onFileAttached(){
+    setIsFileAttached(!isFileAttached);
+  }
+  
   function attachFile() {}
 
   return (
